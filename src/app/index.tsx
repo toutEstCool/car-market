@@ -1,25 +1,12 @@
-import { SafeAreaView, ScrollView, Text, useColorScheme } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+
+import { Navigation } from './navigation'
 
 function App(): JSX.Element {
-	const isDarkMode = useColorScheme() === 'light'
-
-	const Colors = {
-		darker: 'black',
-		lighter: 'white'
-	}
-
-	const backgroundStyle = {
-		backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
-	}
-
 	return (
-		<SafeAreaView style={[backgroundStyle]}>
-			<ScrollView
-				contentInsetAdjustmentBehavior={'automatic'}
-				style={backgroundStyle}
-			/>
-			<Text>Hello Car Market</Text>
-		</SafeAreaView>
+		<SafeAreaProvider>
+			<Navigation />
+		</SafeAreaProvider>
 	)
 }
 
